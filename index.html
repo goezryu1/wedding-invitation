@@ -137,22 +137,6 @@
   </div>
 </section>
 
-<!-- MUSIC -->
-<section id="music">
-  <div class="section-title">Our Song</div>
-  <div class="section-sub">The song that is forever ours</div>
-  <div class="music-player">
-      <div class="vinyl-art" id="vinyl"><div class="vinyl-inner">♪</div></div>
-      <div class="song-title">Ikaw Ang Hiling</div>
-      <div class="song-artist">Instrumental</div>
-      <audio id="weddingAudio" preload="auto" src="Ikaw Ang Hiling Karaoke Instrumental.mp3"></audio>
-      <div class="player-controls"><button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button></div>
-      <div class="progress-bar" id="progressBar" onclick="seekSong(event)"><div class="progress-fill" id="progress"></div></div>
-      <div class="time-display"><span id="cur-time">0:00</span><span id="tot-time">0:00</span></div>
-      <div class="vinyl-note">✦ Press play to hear our song ✦</div>
-    </div>
-</section>
-
 <!-- GALLERY / COUPLE PHOTO -->
 <section id="gallery">
   <div class="section-title">Eddie Boy & Krishelle</div>
@@ -234,11 +218,27 @@
   <div class="future-wall" id="future-wall"></div>
 </section>
 
+<div class="music-float" id="musicFloat">
+  <button class="music-float-toggle" id="musicToggle" onclick="toggleMusicPanel()">♪ Music</button>
+  <div class="music-float-panel" id="musicPanel">
+    <div class="music-float-head">
+      <div>
+        <div class="song-title">Ikaw Ang Hiling</div>
+        <div class="song-artist">Instrumental</div>
+      </div>
+      <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+    </div>
+    <audio id="weddingAudio" preload="auto" src="Ikaw Ang Hiling Karaoke Instrumental.mp3"></audio>
+    <div class="progress-bar" id="progressBar" onclick="seekSong(event)"><div class="progress-fill" id="progress"></div></div>
+    <div class="time-display"><span id="cur-time">0:00</span><span id="tot-time">0:00</span></div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-names">Eddie Boy & Krishelle</div>
   <div class="footer-date">September 22, 2026 · Nueva Vizcaya</div>
   <div class="footer-quote">“Ang pag-ibig ay matiyaga at magandang-loob, hindi maiinggitin, hindi mayabang ni mapagmataas man, ang pag-ibig ay mapagpatawad, mapagtiwala, puno ng pag-asa, at mapagtiis hanggang wakas.” </div>
-  <div class="footer-quote"> — 1 Corinto 13:4 and 7</div>
+  <div class="footer-quote"> — 1 Corinto 13:4 at 7</div>
   <div style="color:var(--yellow);font-size:18px;margin-top:16px">♥</div>
   <p style="font-size:11px;color:rgba(240,208,96,0.35);margin-top:18px;letter-spacing:2px">MADE WITH LOVE · ALL RIGHTS RESERVED</p>
 </footer>
