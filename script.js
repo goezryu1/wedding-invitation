@@ -147,10 +147,14 @@ function initHeartCounter() {
   observer.observe(document.getElementById('hearts'));
 }
 
+function toggleMusicPanel() {
+  const musicFloat = document.getElementById('musicFloat');
+  musicFloat.classList.toggle('open');
+}
+
 function initMusic() {
   const audio = document.getElementById('weddingAudio');
   const playButton = document.getElementById('playBtn');
-  const vinyl = document.getElementById('vinyl');
   const progress = document.getElementById('progress');
   const curTime = document.getElementById('cur-time');
   const totalTime = document.getElementById('tot-time');
@@ -174,7 +178,6 @@ function initMusic() {
   audio.addEventListener('ended', () => {
     state.playing = false;
     playButton.textContent = '▶';
-    vinyl.classList.remove('spinning');
     progress.style.width = '0%';
   });
 
@@ -183,14 +186,12 @@ function initMusic() {
       audio.pause();
       state.playing = false;
       playButton.textContent = '▶';
-      vinyl.classList.remove('spinning');
     } else {
       audio.play().catch(() => {
         playButton.textContent = '▶';
       });
       state.playing = true;
       playButton.textContent = '⏸';
-      vinyl.classList.add('spinning');
     }
   };
 
@@ -333,6 +334,7 @@ window.submitFuture = submitFuture;
 window.closeModal = closeModal;
 window.goTo = goTo;
 window.toggleCapsule = toggleCapsule;
+window.toggleMusicPanel = toggleMusicPanel;
 
 initCanvas();
 initCountdown();
