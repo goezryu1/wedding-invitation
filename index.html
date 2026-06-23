@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wedding invitation for Eddie Boy and Krishelle">
+  <title>Eddie Boy &amp; Krishelle | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<!-- PASSCODE SCREEN -->
+<div id="passcode-screen">
+  <div class="pc-card">
+    <div class="pc-ornament">✦ ✦ ✦</div>
+    <div class="pc-title">Eddie Boy & Krishelle</div>
+    <div class="pc-divider"><div class="pc-divider-line"></div><div class="pc-divider-diamond">◆</div><div class="pc-divider-line"></div></div>
+    <div class="pc-sub">This invitation is private.<br>Please enter your passcode to continue.</div>
+    <div class="pc-input-wrap">
+      <input class="pc-input" type="password" id="pc-input" maxlength="6" placeholder="······" onkeydown="if(event.key==='Enter')checkPasscode()" />
+    </div>
+    <div class="pc-error" id="pc-error"></div>
+    <br>
+    <button class="pc-btn" onclick="checkPasscode()">Enter ✦</button>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo">E & K</div>
+  <div class="nav-links">
+    <a onclick="goTo('details')">Details</a>
+    <a onclick="goTo('gallery')">Gallery</a>
+    <a onclick="goTo('godparents')">Godparents</a>
+    <a onclick="goTo('rsvp')">RSVP</a>
+    <a onclick="goTo('capsule')">Love Capsule</a>
+    <a onclick="goTo('future')">Future Wishes</a>
+  </div>
+</nav>
+
+<!-- HERO / INVITATION -->
+<section id="hero">
+  <div class="hero-ornament">✦ ✦ ✦</div>
+  <div class="hero-sub">You are warmly invited to the wedding of</div>
+  <h1 class="hero-names">Eddie Boy <span class="hero-amp">&</span> Krishelle</h1>
+
+  <div class="invite-card">
+    <div class="invite-together">Together with their families</div>
+    <div class="invite-families">
+      <span style="color:var(--yellow-pale);font-size:0.85em">request the honour of your presence</span><br>
+      at the marriage of<br>
+      <span style="color:var(--yellow-light);font-size:1.1em">Eddie Boy B. Tolentino</span><br>
+      <span style="color:var(--yellow-pale);font-size:0.85em">and</span><br>
+      <span style="color:var(--yellow-light);font-size:1.1em">Krishelle F. Samiling</span>
+    </div>
+    <div class="divider"><div class="divider-line"></div><div class="divider-diamond">◆</div><div class="divider-line"></div></div>
+    <div class="invite-date">September 22, 2026</div>
+    <div class="invite-day">Tuesday</div>
+    <div class="invite-time-row">
+      <div class="invite-time-item"><div class="invite-time-label">Ceremony</div><div class="invite-time-val">3:00 PM</div></div>
+      <div class="invite-time-item"><div class="invite-time-label">Reception</div><div class="invite-time-val">6:00 PM</div></div>
+    </div>
+    <div class="divider"><div class="divider-line"></div><div class="divider-diamond">◆</div><div class="divider-line"></div></div>
+    <div class="invite-venue">Lokal ng Bayombong</div>
+    <div class="invite-venue-addr">Bayombong, Nueva Vizcaya</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--yellow-pale);letter-spacing:2px;margin-bottom:14px">Wedding Ceremony</div>
+    <div class="invite-venue" style="font-size:clamp(13px,2.5vw,16px)">Balai Gloria Events Place</div>
+    <div class="invite-venue-addr">Washington St., Brgy. Osmeña, Solano, Nueva Vizcaya</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--yellow-pale);letter-spacing:2px">Wedding Reception</div>
+  </div>
+
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="goTo('rsvp')">RSVP Now</button>
+    <button class="btn-secondary" onclick="goTo('details')">Wedding Details</button>
+  </div>
+  <span class="scroll-hint" onclick="goTo('countdown')">↓</span>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown">
+  <div class="section-title">The Big Day</div>
+  <div class="section-sub">Counting down every heartbeat</div>
+  <div class="countdown-grid">
+    <div class="cd-box"><div class="cd-num" id="cd-days">000</div><div class="cd-label">Days</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Minutes</div></div>
+    <div class="cd-box"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Seconds</div></div>
+  </div>
+</section>
+
+<!-- HEART COUNTER -->
+<section id="hearts">
+  <span class="heart-anim">💛</span>
+  <div class="heart-count-display" id="heart-count">0</div>
+  <div class="heart-count-sub">hearts celebrating this love</div>
+</section>
+
+<!-- DETAILS -->
+<section id="details">
+  <div class="section-title">Wedding Details</div>
+  <div class="section-sub">An evening written in the stars</div>
+  <div class="details-grid">
+    <div class="detail-card">
+      <div class="detail-icon">⛪</div>
+      <div class="detail-time">3:00 PM</div>
+      <h3>Ceremony</h3>
+      <p>Lokal ng Bayombong<br>Bayombong, Nueva Vizcaya</p>
+    </div>
+    <div class="detail-card">
+      <div class="detail-icon">🌹</div>
+      <div class="detail-time">6:00 PM</div>
+      <h3>Reception</h3>
+      <p>Balai Gloria Events Place<br>Washington St., Brgy. Osmeña<br>Solano, Nueva Vizcaya</p>
+    </div>
+    <div class="detail-card">
+      <div class="detail-icon">📅</div>
+      <div class="detail-time">September 22</div>
+      <h3>Save the Date</h3>
+      <p>Tuesday<br>2026<br>Mark your calendars ✦</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECEPTION QR -->
+<section id="reception-qr">
+  <div class="section-title">On the Way to the Reception</div>
+  <div class="section-sub">Scan this after the wedding to head straight to the venue</div>
+  <div class="qr-card">
+    <a href="https://maps.google.com/?q=Balai+Gloria+Events+Place+Solano+Nueva+Vizcaya" target="_blank" rel="noopener noreferrer">
+      <img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DBalai%2BGloria%2BEvents%2BPlace%2BSolano%2BNueva%2BVizcaya" alt="QR code for reception directions" />
+    </a>
+    <p class="qr-text">Scan to open directions to Balai Gloria Events Place in Solano, Nueva Vizcaya.</p>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section id="music">
+  <div class="section-title">Our Song</div>
+  <div class="section-sub">The song that is forever ours</div>
+  <div class="music-player">
+      <div class="vinyl-art" id="vinyl"><div class="vinyl-inner">♪</div></div>
+      <div class="song-title">Ikaw Ang Hiling</div>
+      <div class="song-artist">Instrumental</div>
+      <audio id="weddingAudio" preload="auto" src="Ikaw Ang Hiling Karaoke Instrumental.mp3"></audio>
+      <div class="player-controls"><button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button></div>
+      <div class="progress-bar" id="progressBar" onclick="seekSong(event)"><div class="progress-fill" id="progress"></div></div>
+      <div class="time-display"><span id="cur-time">0:00</span><span id="tot-time">0:00</span></div>
+      <div class="vinyl-note">✦ Press play to hear our song ✦</div>
+    </div>
+</section>
+
+<!-- GALLERY / COUPLE PHOTO -->
+<section id="gallery">
+  <div class="section-title">Eddie Boy & Krishelle</div>
+  <div class="section-sub">Captured in golden light</div>
+  <div class="couple-photo-wrap">
+    <img src="image.jpg" alt="Eddie Boy and Krishelle" />
+  </div>
+  <p style="text-align:center;margin-top:20px;font-family:'Cormorant Garamond',serif;color:var(--yellow-pale);font-size:15px;font-style:italic">September 22, 2026</p>
+</section>
+
+<!-- GODPARENTS -->
+<section id="godparents">
+  <div class="section-title">Beloved Godparents</div>
+  <div class="section-sub">The pillars of our love and faith</div>
+  <div class="gp-banner">
+    <h3>To Our Ninong & Ninang</h3>
+    <p>You have been the guiding lights of our lives — blessing us with wisdom, love, and unwavering support. On this most sacred day, we are honored to have you walk this path beside us. Your presence is the greatest gift.</p>
+  </div>
+  <div class="gp-form">
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--yellow-light);font-style:italic;text-align:center;margin-bottom:18px">Leave Your Blessing</h3>
+    <div class="form-row"><label class="fl">Your Name & Role</label><input type="text" id="gp-name" placeholder="e.g. Lolo Jose — Ninong" /></div>
+    <div class="form-row"><label class="fl">Your blessing, advice or story</label><textarea id="gp-msg" placeholder="Share your wisdom, a beloved memory, or words of love for the couple..."></textarea></div>
+    <button class="btn-primary" style="width:100%" onclick="submitGodparent()">Leave Your Blessing ✦</button>
+  </div>
+  <div class="gp-messages" id="gp-messages"></div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp">
+  <div class="section-title">RSVP</div>
+  <div class="section-sub">Will you grace us with your presence?</div>
+  <div class="rsvp-form">
+    <div class="form-row"><label class="fl">Full Name</label><input type="text" id="rsvp-name" placeholder="Your full name" /></div>
+    <div class="form-row"><label class="fl">Email Address</label><input type="email" id="rsvp-email" placeholder="your@email.com" /></div>
+    <div class="form-row"><label class="fl">Number of Guests</label>
+      <select id="rsvp-guests">
+        <option value="1">Just Me</option>
+        <option value="2">2 Guests</option>
+        <option value="3">3 Guests</option>
+        <option value="4">4 Guests</option>
+      </select>
+    </div>
+    <div class="form-row"><label class="fl">Will you attend?</label>
+      <div class="radio-group">
+        <label class="radio-opt"><input type="radio" name="attend" value="yes" checked><span>💛 Joyfully Accept</span></label>
+        <label class="radio-opt"><input type="radio" name="attend" value="no"><span>🤍 Regretfully Decline</span></label>
+      </div>
+    </div>
+    <div class="form-row"><label class="fl">A message for the couple</label><textarea id="rsvp-msg" placeholder="Share your love, excitement, or a personal note for Eddie Boy & Krishelle..."></textarea></div>
+    <button class="btn-primary" style="width:100%;margin-top:8px" onclick="submitRSVP()">Send with Love ✦</button>
+  </div>
+</section>
+
+<!-- LOVE CAPSULE -->
+<section id="capsule">
+  <div class="section-title">Love Letter Capsule</div>
+  <div class="section-sub">A secret garden of heartfelt words</div>
+  <span class="lock-icon">💌</span>
+  <div class="capsule-desc">Every blessing and message left for the couple rests here, sealed until after the ceremony. Eddie Boy and Krishelle will open this capsule on their wedding night, reading each word of love written just for them.</div>
+  <div style="text-align:center;margin-bottom:14px">
+    <div style="font-family:'Playfair Display',serif;font-size:17px;color:var(--yellow);font-style:italic" id="capsule-count">0 messages sealed inside ✦</div>
+  </div>
+  <button class="capsule-toggle" id="capsule-btn" onclick="toggleCapsule()">Peek Inside (Host View) ▾</button>
+  <div class="capsule-messages" id="capsule-msgs"></div>
+</section>
+
+<!-- FUTURE -->
+<section id="future">
+  <div class="section-title">Message to Future Us</div>
+  <div class="section-sub">Wishes for every anniversary to come</div>
+  <div class="rsvp-form">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--cream);text-align:center;margin-bottom:22px;line-height:1.75">Write a wish or a piece of advice for Eddie Boy & Krishelle to read after the wedding. Your words will travel through time with them.</p>
+    <div class="form-row"><label class="fl">Your Name</label><input type="text" id="fut-name" placeholder="Your name" /></div>
+    <div class="form-row"><label class="fl">To be opened after the wedding on September 22, 2026</label>
+    </div>
+    <div class="form-row"><label class="fl">Your message</label><textarea id="fut-msg" placeholder="Dear Eddie Boy & Krishelle, on your wedding day I hope you still…"></textarea></div>
+    <button class="btn-primary" style="width:100%" onclick="submitFuture()">Send to the Future ✦</button>
+  </div>
+  <div class="future-wall" id="future-wall"></div>
+</section>
+
+<footer>
+  <div class="footer-names">Eddie Boy & Krishelle</div>
+  <div class="footer-date">September 22, 2026 · Nueva Vizcaya</div>
+  <div class="footer-quote">“Ang pag-ibig ay matiyaga at magandang-loob, hindi maiinggitin, hindi mayabang ni mapagmataas man, ang pag-ibig ay mapagpatawad, mapagtiwala, puno ng pag-asa, at mapagtiis hanggang wakas.” </div>
+  <div class="footer-quote"> — 1 Corinto 13:4 and 7</div>
+  <div style="color:var(--yellow);font-size:18px;margin-top:16px">♥</div>
+  <p style="font-size:11px;color:rgba(240,208,96,0.35);margin-top:18px;letter-spacing:2px">MADE WITH LOVE · ALL RIGHTS RESERVED</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="rsvpModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('rsvpModal')">&times;</button>
+    <div class="success-msg" id="rsvp-success">
+      <span class="si">💛</span>
+      <h3>We cannot wait to celebrate with you!</h3>
+      <p>Your RSVP has been received. Eddie Boy & Krishelle are overjoyed that you'll be part of their forever story.</p>
+    </div>
+    <div class="success-msg" id="rsvp-decline" style="display:none">
+      <span class="si">🤍</span>
+      <h3>You will be missed dearly.</h3>
+      <p>Though you can't be there in person, you are always in their hearts. They cherish your love and the message you've left behind.</p>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
