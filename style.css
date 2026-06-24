@@ -78,33 +78,12 @@ body {
    single unified background rather than a per-section block.
    ============================================================ */
 
-/* Diagonal gold vein network — the fine "gold lining" cracks */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(
-      118deg,
-      transparent 0px, transparent 60px,
-      rgba(201,162,39,0.065) 60px, rgba(201,162,39,0.065) 61px,
-      transparent 61px, transparent 130px,
-      rgba(232,200,74,0.038) 130px, rgba(232,200,74,0.038) 131px
-    ),
-    repeating-linear-gradient(
-      62deg,
-      transparent 0px, transparent 90px,
-      rgba(201,162,39,0.05) 90px, rgba(201,162,39,0.05) 91px,
-      transparent 91px, transparent 170px,
-      rgba(232,200,74,0.03) 170px, rgba(232,200,74,0.03) 171px
-    );
-}
-
 /* Radial gold corner glows + faint alcohol-ink blue blooms,
    echoing the "Save the Date" card's marbled corners — kept very
-   soft so it sits quietly behind content at every scroll position. */
+   soft so it sits quietly behind content at every scroll position.
+   (The fine gold "cracks" themselves come from the animated canvas
+   lines, which look organic — a repeating grid pattern here would
+   read as mechanical, so this layer stays soft and blob-like only.) */
 body::after {
   content: '';
   position: fixed;
@@ -414,14 +393,13 @@ nav {
     radial-gradient(ellipse 50% 30% at 50% 0%,  rgba(168,200,232,0.3) 0%, transparent 50%);
 }
 
-/* Gold vein shimmer */
+/* Soft gold edge — no grid pattern, just a clean line at top/bottom */
 #hero::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background-image: var(--vein-bg);
   border-top: 1px solid rgba(232,200,74,0.13);
   border-bottom: 1px solid rgba(232,200,74,0.09);
 }
@@ -780,6 +758,18 @@ section {
 }
 
 .detail-icon { font-size: 28px; margin-bottom: 14px; }
+.detail-icon--img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin-bottom: 14px;
+}
+.detail-icon-img {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 1px 2px rgba(11,26,62,0.15));
+}
 
 .detail-card h3 {
   font-family: 'Playfair Display', serif;
