@@ -163,39 +163,49 @@
     <div class="section-title">Wedding Details</div>
     <div class="section-sub">An evening written in the stars</div>
     <div class="details-grid">
-      <div class="detail-card">
+      <div class="detail-card" style="--photo: url('ceremony-venue.jpg');">
         <div class="detail-icon detail-icon--img" aria-hidden="true"><img src="inc-chapel-icon.png" alt="" class="detail-icon-img"></div>
         <div class="detail-time">3:00 PM</div>
         <h3>Ceremony</h3>
         <p>Lokal ng Bayombong<br>Bayombong, Nueva Vizcaya</p>
       </div>
-      <div class="detail-card">
-        <div class="detail-icon" aria-hidden="true">🌹</div>
+      <div class="detail-card" style="--photo: url('reception-venue.jpg');">
+        <div class="detail-icon detail-icon--img" aria-hidden="true"><img src="rose-icon.svg" alt="" class="detail-icon-img"></div>
         <div class="detail-time">6:00 PM</div>
         <h3>Reception</h3>
         <p>Balai Gloria Events Place<br>Washington St., Brgy. Osmeña<br>Solano, Nueva Vizcaya</p>
       </div>
-      <div class="detail-card">
-        <div class="detail-icon" aria-hidden="true">📅</div>
-        <div class="detail-time">September 22</div>
-        <h3>Save the Date</h3>
-        <p>Tuesday<br>2026<br>Mark your calendars ✦</p>
-      </div>
     </div>
   </section>
 
-  <!-- RECEPTION QR -->
+  <!-- VENUE QR CODES -->
   <section id="reception-qr">
-    <div class="section-title">On the Way to the Reception</div>
-    <div class="section-sub">Scan this after the wedding to head straight to the venue</div>
-    <div class="qr-card">
-      <a href="https://maps.google.com/?q=Balai+Gloria+Events+Place+Solano+Nueva+Vizcaya"
-         target="_blank" rel="noopener noreferrer" aria-label="Open directions in Google Maps">
-        <img class="qr-image"
-          src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DBalai%2BGloria%2BEvents%2BPlace%2BSolano%2BNueva%2BVizcaya"
-          alt="QR code for reception directions">
-      </a>
-      <p class="qr-text">Scan to open directions to Balai Gloria Events Place in Solano, Nueva Vizcaya.</p>
+    <div class="section-title">On the Way to the Wedding</div>
+    <div class="section-sub">Scan the QR code for the venue you need directions to.</div>
+    <div class="qr-grid">
+      <div class="qr-card">
+        <h3 class="qr-card-title">Ceremony</h3>
+        <a href="https://maps.google.com/?q=Lokal+ng+Bayombong+Nueva+Vizcaya"
+           target="_blank" rel="noopener noreferrer" aria-label="Open ceremony directions in Google Maps">
+          <img class="qr-image"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DLokal%2Bng%2BBayombong%2BNueva%2BVizcaya"
+            alt="QR code for ceremony directions">
+        </a>
+        <p class="qr-text">Scan to open directions to</p>
+        <p class="qr-text" style="text-align: center;"><b>Lokal ng Bayombong, Nueva Vizcaya</b></p>
+
+      </div>
+      <div class="qr-card">
+        <h3 class="qr-card-title">Reception</h3>
+        <a href="https://maps.google.com/?q=Balai+Gloria+Events+Place+Solano+Nueva+Vizcaya"
+           target="_blank" rel="noopener noreferrer" aria-label="Open reception directions in Google Maps">
+          <img class="qr-image"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fmaps.google.com%2F%3Fq%3DBalai%2BGloria%2BEvents%2BPlace%2BSolano%2BNueva%2BVizcaya"
+            alt="QR code for reception directions">
+        </a>
+        <p class="qr-text">Scan to open directions to</p>
+        <p class="qr-text" style="text-align: center;"><b>Balai Gloria Events Place, Solano, Nueva Vizcaya</b></p>
+      </div>
     </div>
   </section>
 

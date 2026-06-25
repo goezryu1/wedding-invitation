@@ -737,24 +737,53 @@ section {
 
 .details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 780px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .detail-card {
-  background: linear-gradient(160deg, #fdf6e3 0%, #eef3fb 60%, #d6e8f5 100%);
-  border: 1px solid rgba(201,162,39,0.25);
-  padding: 28px 20px;
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #14305f;           /* fallback until a photo is set */
+  background-image: var(--photo, none); /* set inline: style="--photo:url('venue.jpg')" */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(232,200,74,0.4);
+  padding: 32px 20px;
   text-align: center;
-  transition: background 0.35s, transform 0.35s, box-shadow 0.35s;
-  box-shadow: 0 2px 16px rgba(26,52,112,0.07);
+  transition: transform 0.35s, box-shadow 0.35s;
+  box-shadow: 0 4px 20px rgba(11,26,62,0.18);
 }
+.detail-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(11,26,62,0.32) 0%, rgba(11,26,62,0.8) 100%);
+}
+.detail-card > * { position: relative; z-index: 1; }
 .detail-card:hover {
-  background: linear-gradient(160deg, #f5e8c0 0%, #deedf8 100%);
   transform: translateY(-5px);
-  box-shadow: 0 10px 32px rgba(26,52,112,0.14);
+  box-shadow: 0 10px 32px rgba(11,26,62,0.32);
+}
+
+/* Venue photo slot — drop an <img class="detail-photo" src="..."> as the
+   first child of .detail-card (above the icon) to show the venue picture */
+.detail-photo {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid rgba(201,162,39,0.35);
+  margin-bottom: 18px;
+  box-shadow: 0 4px 14px rgba(26,52,112,0.12);
 }
 
 .detail-icon { font-size: 28px; margin-bottom: 14px; }
@@ -768,13 +797,13 @@ section {
 .detail-icon-img {
   height: 40px;
   width: auto;
-  filter: drop-shadow(0 1px 2px rgba(11,26,62,0.15));
+  filter: drop-shadow(0 0 4px rgba(255,253,246,0.85)) drop-shadow(0 1px 3px rgba(0,0,0,0.4));
 }
 
 .detail-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 19px;
-  color: var(--navy);
+  color: #fffdf6;
   margin-bottom: 10px;
   font-style: italic;
 }
@@ -782,7 +811,7 @@ section {
 .detail-card p {
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
-  color: var(--navy-mid);
+  color: var(--blue-pale);
   line-height: 1.7;
 }
 
@@ -805,14 +834,28 @@ section {
 }
 #reception-qr .section-sub { color: var(--navy-mid); }
 
-.qr-card {
-  max-width: 420px;
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  max-width: 600px;
   margin: 0 auto;
+}
+
+.qr-card {
   padding: 28px;
   text-align: center;
   background: rgba(255,255,255,0.85);
   border: 1px solid rgba(201,162,39,0.3);
   box-shadow: 0 4px 24px rgba(26,52,112,0.1);
+}
+
+.qr-card-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 14px;
 }
 
 .qr-image {
